@@ -6,7 +6,14 @@ Data Sources:
 	1. fake_job_postings.csv
 	   This data source contain 18,000 job postings which 800 are already identified as fake (field: fraudulent = 1)
         2. data_scientist_united_states_job_postings_jobspikr
-	   This data source contains 10,000 Data Scientist Job Postings from USA
+	   This data source contains 10,000 Data Scientist Job Postings from USA.
+Cleaning:
+	1. Flatten the location data from from fake_job_postings to have separate columns for city, state, and country.
+	2. Trim the country column to fit state, city, and total rows in dataframe by using a while loop.
+	3. Drop unnecessary columns from fake job postings and data scientist job postings.
+	4. search each word in each job title via regular expression to evaluate if any words matched 5 key words.  The key words were 
+	programmer, analyst, developer, engineer, and technician.  If any of the words in a given job title matched any of these key 
+	words, a boolean of True was assigned.  Anything not true was listed as NaN.
 
 Steps:
 	1. Count how many times each word shows in fake postings description (fake_job_postings.description where fraudulent = 1)
